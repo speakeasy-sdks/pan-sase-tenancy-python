@@ -9,12 +9,6 @@ from enum import Enum
 from sase_tenancy import utils
 from typing import Optional
 
-
-@dataclasses.dataclass
-class PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsSecurity:
-    
-    bearer: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' }})
-    
 class PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsSort(str, Enum):
     r"""Identifies the response structure's sort order:
     

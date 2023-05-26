@@ -18,6 +18,7 @@ src/sase_tenancy/models/operations/__init__.py
 src/sase_tenancy/models/shared/tenant_service_group.py
 src/sase_tenancy/models/shared/tenant_service_group_create.py
 src/sase_tenancy/models/shared/tenant_service_group_update.py
+src/sase_tenancy/models/shared/security.py
 src/sase_tenancy/models/shared/__init__.py
 docs/sasetenancy/README.md
 docs/tenancygroup/README.md

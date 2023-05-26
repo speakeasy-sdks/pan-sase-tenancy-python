@@ -8,12 +8,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class GetTenancyV1TenantServiceGroupsTsgIDSecurity:
-    
-    bearer: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' }})
-    
-
-@dataclasses.dataclass
 class GetTenancyV1TenantServiceGroupsTsgIDRequest:
     
     tsg_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'tsg_id', 'style': 'simple', 'explode': False }})

@@ -10,12 +10,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class GetTenancyV1TenantServiceGroupsSecurity:
-    
-    bearer: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' }})
-    
-
-@dataclasses.dataclass
 class GetTenancyV1TenantServiceGroupsRequest:
     
     hierarchy: Optional[bool] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'hierarchy', 'style': 'form', 'explode': True }})

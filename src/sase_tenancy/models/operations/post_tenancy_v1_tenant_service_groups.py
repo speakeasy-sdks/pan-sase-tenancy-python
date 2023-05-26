@@ -8,12 +8,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class PostTenancyV1TenantServiceGroupsSecurity:
-    
-    bearer: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' }})
-    
-
-@dataclasses.dataclass
 class PostTenancyV1TenantServiceGroupsResponse:
     
     content_type: str = dataclasses.field()

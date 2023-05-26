@@ -3,6 +3,7 @@
 import requests as requests_http
 from . import utils
 from .tenancygroup import TenancyGroup
+from sase_tenancy.models import shared
 
 SERVERS = [
     "https://api.sase.paloaltonetworks.com",
@@ -17,16 +18,19 @@ class SaseTenancy:
     _security_client: requests_http.Session
     _server_url: str = SERVERS[0]
     _language: str = "python"
-    _sdk_version: str = "1.0.0"
+    _sdk_version: str = "1.0.1"
     _gen_version: str = "2.32.2"
 
     def __init__(self,
+                 security: shared.Security = None,
                  server_url: str = None,
                  url_params: dict[str, str] = None,
                  client: requests_http.Session = None
                  ) -> None:
         """Instantiates the SDK configuring it with the provided parameters.
         
+        :param security: The security details required for authentication
+        :type security: shared.Security
         :param server_url: The server URL to use for all operations
         :type server_url: str
         :param url_params: Parameters to optionally template the server URL with
@@ -46,7 +50,7 @@ class SaseTenancy:
         if client is not None:
             self._client = client
         
-        self._security_client = self._client
+        self._security_client = utils.configure_security_client(self._client, security)
         
 
         self._init_sdks()

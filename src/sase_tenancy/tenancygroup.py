@@ -22,7 +22,7 @@ class TenancyGroup:
         self._gen_version = gen_version
         
     
-    def create(self, request: shared.TenantServiceGroupCreate, security: operations.PostTenancyV1TenantServiceGroupsSecurity) -> operations.PostTenancyV1TenantServiceGroupsResponse:
+    def create(self, request: shared.TenantServiceGroupCreate) -> operations.PostTenancyV1TenantServiceGroupsResponse:
         r"""Create a tenant service group
         Create a tenant service group.
         The service account used to authenticate this request
@@ -41,7 +41,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('POST', url, data=data, files=form, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -58,13 +58,17 @@ class TenancyGroup:
         return res
 
     
-    def delete(self, request: operations.DeleteTenancyV1TenantServiceGroupsTsgIDRequest, security: operations.DeleteTenancyV1TenantServiceGroupsTsgIDSecurity) -> operations.DeleteTenancyV1TenantServiceGroupsTsgIDResponse:
+    def delete(self, tsg_id: str) -> operations.DeleteTenancyV1TenantServiceGroupsTsgIDResponse:
         r"""Delete a tenant service group
         Delete a tenant service group. If the TSG ID supplied
         in this API's path does not match the TSG ID contained in
         the access token used to authenticate this request, this
         request will fail.
         """
+        request = operations.DeleteTenancyV1TenantServiceGroupsTsgIDRequest(
+            tsg_id=tsg_id,
+        )
+        
         base_url = self._server_url
         
         url = utils.generate_url(operations.DeleteTenancyV1TenantServiceGroupsTsgIDRequest, base_url, '/tenancy/v1/tenant_service_groups/{tsg_id}', request)
@@ -72,7 +76,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('DELETE', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -89,10 +93,14 @@ class TenancyGroup:
         return res
 
     
-    def get(self, request: operations.GetTenancyV1TenantServiceGroupsTsgIDRequest, security: operations.GetTenancyV1TenantServiceGroupsTsgIDSecurity) -> operations.GetTenancyV1TenantServiceGroupsTsgIDResponse:
+    def get(self, tsg_id: str) -> operations.GetTenancyV1TenantServiceGroupsTsgIDResponse:
         r"""Get a tenant service group
         Get a tenant service group by TSG ID.
         """
+        request = operations.GetTenancyV1TenantServiceGroupsTsgIDRequest(
+            tsg_id=tsg_id,
+        )
+        
         base_url = self._server_url
         
         url = utils.generate_url(operations.GetTenancyV1TenantServiceGroupsTsgIDRequest, base_url, '/tenancy/v1/tenant_service_groups/{tsg_id}', request)
@@ -100,7 +108,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -117,12 +125,16 @@ class TenancyGroup:
         return res
 
     
-    def list(self, request: operations.GetTenancyV1TenantServiceGroupsRequest, security: operations.GetTenancyV1TenantServiceGroupsSecurity) -> operations.GetTenancyV1TenantServiceGroupsResponse:
+    def list(self, hierarchy: Optional[bool] = None) -> operations.GetTenancyV1TenantServiceGroupsResponse:
         r"""List all tenant service groups
         Get a list of all the tenant service groups
         that are available to the service account used to
         authenticate this request.
         """
+        request = operations.GetTenancyV1TenantServiceGroupsRequest(
+            hierarchy=hierarchy,
+        )
+        
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/tenancy/v1/tenant_service_groups'
@@ -131,7 +143,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -148,7 +160,7 @@ class TenancyGroup:
         return res
 
     
-    def list_ancestors(self, request: operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsRequest, security: operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsSecurity) -> operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsResponse:
+    def list_ancestors(self, tsg_id: str, fields_: Optional[str] = None, include_self: Optional[bool] = None, sort: Optional[operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsSort] = None) -> operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsResponse:
         r"""List tenant service group ancestors
         List the ancestor tenants of the tenant service group
         specified in this request. If the TSG ID supplied
@@ -156,6 +168,13 @@ class TenancyGroup:
         the access token used to authenticate this request, this
         request will fail.
         """
+        request = operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsRequest(
+            tsg_id=tsg_id,
+            fields_=fields_,
+            include_self=include_self,
+            sort=sort,
+        )
+        
         base_url = self._server_url
         
         url = utils.generate_url(operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListAncestorsRequest, base_url, '/tenancy/v1/tenant_service_groups/{tsg_id}/operations/list_ancestors', request)
@@ -164,7 +183,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('POST', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -181,7 +200,7 @@ class TenancyGroup:
         return res
 
     
-    def list_children(self, request: operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenRequest, security: operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenSecurity) -> operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenResponse:
+    def list_children(self, tsg_id: str, hierarchy: Optional[bool] = None, include_self: Optional[bool] = None) -> operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenResponse:
         r"""List tenant service group children
         List the child tenants of the tenant service group
         specified in this request. If the TSG ID supplied
@@ -189,6 +208,12 @@ class TenancyGroup:
         the access token used to authenticate this request, this
         request will fail.
         """
+        request = operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenRequest(
+            tsg_id=tsg_id,
+            hierarchy=hierarchy,
+            include_self=include_self,
+        )
+        
         base_url = self._server_url
         
         url = utils.generate_url(operations.PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenRequest, base_url, '/tenancy/v1/tenant_service_groups/{tsg_id}/operations/list_children', request)
@@ -197,7 +222,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('POST', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -214,13 +239,18 @@ class TenancyGroup:
         return res
 
     
-    def update(self, request: operations.PutTenancyV1TenantServiceGroupsTsgIDRequest, security: operations.PutTenancyV1TenantServiceGroupsTsgIDSecurity) -> operations.PutTenancyV1TenantServiceGroupsTsgIDResponse:
+    def update(self, tenant_service_group_update: shared.TenantServiceGroupUpdate, tsg_id: str) -> operations.PutTenancyV1TenantServiceGroupsTsgIDResponse:
         r"""Update a tenant service group
         Update a tenant service group. If the TSG ID supplied 
         in this API's path does not match the TSG ID contained in
         the access token used to authenticate this request, this 
         request will fail.
         """
+        request = operations.PutTenancyV1TenantServiceGroupsTsgIDRequest(
+            tenant_service_group_update=tenant_service_group_update,
+            tsg_id=tsg_id,
+        )
+        
         base_url = self._server_url
         
         url = utils.generate_url(operations.PutTenancyV1TenantServiceGroupsTsgIDRequest, base_url, '/tenancy/v1/tenant_service_groups/{tsg_id}', request)
@@ -233,7 +263,7 @@ class TenancyGroup:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
-        client = utils.configure_security_client(self._client, security)
+        client = self._security_client
         
         http_res = client.request('PUT', url, data=data, files=form, headers=headers)
         content_type = http_res.headers.get('Content-Type')

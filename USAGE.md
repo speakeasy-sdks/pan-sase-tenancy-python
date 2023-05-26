@@ -1,9 +1,13 @@
 <!-- Start SDK Example Usage -->
 ```python
 import sase_tenancy
-from sase_tenancy.models import operations, shared
+from sase_tenancy.models import shared
 
-s = sase_tenancy.SaseTenancy()
+s = sase_tenancy.SaseTenancy(
+    security=shared.Security(
+        bearer="YOUR_BEARER_TOKEN_HERE",
+    ),
+)
 
 req = shared.TenantServiceGroupCreate(
     display_name='Example TSG',
@@ -12,9 +16,7 @@ req = shared.TenantServiceGroupCreate(
     vertical=shared.TenantServiceGroupCreateVertical.HIGH_TECH,
 )
 
-res = s.tenancy_group.create(req, operations.PostTenancyV1TenantServiceGroupsSecurity(
-    bearer="YOUR_BEARER_TOKEN_HERE",
-))
+res = s.tenancy_group.create(req)
 
 if res.tenant_service_group is not None:
     # handle response

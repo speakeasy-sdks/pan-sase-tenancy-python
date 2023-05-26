@@ -9,12 +9,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class PutTenancyV1TenantServiceGroupsTsgIDSecurity:
-    
-    bearer: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' }})
-    
-
-@dataclasses.dataclass
 class PutTenancyV1TenantServiceGroupsTsgIDRequest:
     
     tenant_service_group_update: shared_tenant_service_group_update.TenantServiceGroupUpdate = dataclasses.field(metadata={'request': { 'media_type': 'application/json' }})
