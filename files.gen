@@ -1,5 +1,6 @@
 src/sase_tenancy/tenancygroup.py
 src/sase_tenancy/sdk.py
+.gitignore
 pylintrc
 setup.py
 src/sase_tenancy/__init__.py
