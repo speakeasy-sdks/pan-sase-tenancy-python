@@ -1,3 +1,4 @@
+src/sase_tenancy/sdkconfiguration.py
 src/sase_tenancy/tenancygroup.py
 src/sase_tenancy/sdk.py
 .gitignore
