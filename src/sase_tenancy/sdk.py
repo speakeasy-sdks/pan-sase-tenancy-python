@@ -7,7 +7,7 @@ from sase_tenancy import utils
 from sase_tenancy.models import shared
 
 class SaseTenancy:
-    r"""Manages tenant service groups."""
+    r"""Tenant Service Group: Manages tenant service groups."""
     tenancy_group: TenancyGroup
 
     sdk_configuration: SDKConfiguration
