@@ -5,7 +5,7 @@ from sase_tenancy.models import shared
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 

@@ -26,7 +26,7 @@ from sase_tenancy.models import shared
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -59,7 +59,7 @@ from sase_tenancy.models import operations
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -83,7 +83,7 @@ from sase_tenancy.models import operations
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -109,7 +109,7 @@ from sase_tenancy.models import operations
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -137,7 +137,7 @@ from sase_tenancy.models import operations
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -165,7 +165,7 @@ from sase_tenancy.models import operations
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
@@ -192,7 +192,7 @@ from sase_tenancy.models import operations, shared
 
 s = sase_tenancy.SaseTenancy(
     security=shared.Security(
-        bearer="YOUR_BEARER_TOKEN_HERE",
+        bearer="",
     ),
 )
 
