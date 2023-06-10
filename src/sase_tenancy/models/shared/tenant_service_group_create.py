@@ -37,9 +37,9 @@ class TenantServiceGroupCreateVertical(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
+
 @dataclasses.dataclass
 class TenantServiceGroupCreate:
-    
     display_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('display_name') }})
     r"""The tenant service group's display name."""
     parent_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('parent_id'), 'exclude': lambda f: f is None }})
@@ -53,3 +53,4 @@ class TenantServiceGroupCreate:
     products managed by this TSG.
     """
     
+

@@ -37,9 +37,9 @@ class TenantServiceGroupUpdateVertical(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
+
 @dataclasses.dataclass
 class TenantServiceGroupUpdate:
-    
     display_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('display_name'), 'exclude': lambda f: f is None }})
     r"""The tenant service group's display name."""
     support_contact: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('support_contact'), 'exclude': lambda f: f is None }})
@@ -51,3 +51,4 @@ class TenantServiceGroupUpdate:
     products managed by this TSG.
     """
     
+

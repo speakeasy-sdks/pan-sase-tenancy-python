@@ -7,12 +7,13 @@ from ..shared import tenant_service_group as shared_tenant_service_group
 from typing import Optional
 
 
+
 @dataclasses.dataclass
 class PostTenancyV1TenantServiceGroupsResponse:
-    
     content_type: str = dataclasses.field()
     status_code: int = dataclasses.field()
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     tenant_service_group: Optional[shared_tenant_service_group.TenantServiceGroup] = dataclasses.field(default=None)
     r"""Successful response."""
     
+

@@ -9,9 +9,9 @@ from sase_tenancy import utils
 from typing import Optional
 
 
+
 @dataclasses.dataclass
 class PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenRequest:
-    
     tsg_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'tsg_id', 'style': 'simple', 'explode': False }})
     r"""A unique identifier for the tenant service group."""
     hierarchy: Optional[bool] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'hierarchy', 'style': 'form', 'explode': True }})
@@ -27,22 +27,27 @@ class PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenRequest:
     """
     
 
+
+
 @dataclass_json(undefined=Undefined.EXCLUDE)
+
 @dataclasses.dataclass
 class PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildren200ApplicationJSON:
     r"""Successful response."""
-    
     count: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('count') }})
     r"""Total count of the items"""
     items: list[shared_tenant_service_group.TenantServiceGroup] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('items') }})
     
 
+
+
+
 @dataclasses.dataclass
 class PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildrenResponse:
-    
     content_type: str = dataclasses.field()
     status_code: int = dataclasses.field()
     post_tenancy_v1_tenant_service_groups_tsg_id_operations_list_children_200_application_json_object: Optional[PostTenancyV1TenantServiceGroupsTsgIDOperationsListChildren200ApplicationJSON] = dataclasses.field(default=None)
     r"""Successful response."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     
+
